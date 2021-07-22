@@ -53,15 +53,6 @@ spec:
             operator: "Equal"
             value: "kafka"
             effect: "NoSchedule"
-        affinity:
-          nodeAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              nodeSelectorTerms:
-              - matchExpressions:
-                - key: dedicated
-                  operator: In
-                  values:
-                  - kafka
   zookeeper:
     replicas: 3
     template:
@@ -71,15 +62,6 @@ spec:
             operator: "Equal"
             value: "kafka"
             effect: "NoSchedule"
-        affinity:
-          nodeAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              nodeSelectorTerms:
-              - matchExpressions:
-                - key: dedicated
-                  operator: In
-                  values:
-                  - kafka
     storage:
       type: persistent-claim
       size: 20Gi
