@@ -53,6 +53,16 @@ spec:
             operator: "Equal"
             value: "kafka"
             effect: "NoSchedule"
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                    - key: dedicated
+                      operator: In
+                      values:
+                        - kafka
+                topologyKey: "kubernetes.io/hostname"
   zookeeper:
     replicas: 3
     template:
@@ -62,6 +72,16 @@ spec:
             operator: "Equal"
             value: "kafka"
             effect: "NoSchedule"
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                    - key: dedicated
+                      operator: In
+                      values:
+                        - kafka
+                topologyKey: "kubernetes.io/hostname"
     storage:
       type: persistent-claim
       size: 20Gi
