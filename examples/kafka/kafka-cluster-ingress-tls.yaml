@@ -24,7 +24,7 @@ spec:
           type: tls
         configuration: 
           bootstrap:
-            host: bootstrap
+            host: bootstrap-aia
           brokers:
           - broker: 0
             host: broker-0
