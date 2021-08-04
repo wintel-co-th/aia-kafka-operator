@@ -56,35 +56,29 @@ spec:
               value: acrRegistry/redhat8/strimzi-kafka:0.23.0-kafka-2.8.0
             - name: STRIMZI_KAFKA_IMAGES
               value: |
-                2.7.0=quay.io/strimzi/kafka:0.24.0-kafka-2.7.0
-                2.7.1=quay.io/strimzi/kafka:0.24.0-kafka-2.7.1
-                2.8.0=quay.io/strimzi/kafka:0.24.0-kafka-2.8.0
+                2.7.0=quay.io/strimzi/kafka:0.23.0-kafka-2.7.0
+                2.7.1=quay.io/strimzi/kafka:0.23.0-kafka-2.7.1
+                2.8.0=quay.io/strimzi/kafka:0.23.0-kafka-2.8.0
             - name: STRIMZI_KAFKA_CONNECT_IMAGES
               value: |
-                2.7.0=quay.io/strimzi/kafka:0.24.0-kafka-2.7.0
-                2.7.1=quay.io/strimzi/kafka:0.24.0-kafka-2.7.1
-                2.8.0=quay.io/strimzi/kafka:0.24.0-kafka-2.8.0
-       #     - name: STRIMZI_KAFKA_CONNECT_S2I_IMAGES
-        #      value: |
-        #        2.6.0=quay.io/strimzi/kafka:0.23.0-kafka-2.6.0
-       #         2.6.1=quay.io/strimzi/kafka:0.23.0-kafka-2.6.1
-       #         2.6.2=quay.io/strimzi/kafka:0.23.0-kafka-2.6.2
-       #         2.7.0=quay.io/strimzi/kafka:0.23.0-kafka-2.7.0
-       #        2.8.0=quay.io/strimzi/kafka:0.23.0-kafka-2.8.0
-      #      - name: STRIMZI_KAFKA_MIRROR_MAKER_IMAGES
-      #        value: |
-       #         2.6.0=quay.io/strimzi/kafka:0.23.0-kafka-2.6.0
-      #          2.6.1=quay.io/strimzi/kafka:0.23.0-kafka-2.6.1
-       #         2.6.2=quay.io/strimzi/kafka:0.23.0-kafka-2.6.2
-       #         2.7.0=quay.io/strimzi/kafka:0.23.0-kafka-2.7.0
-      #          2.8.0=quay.io/strimzi/kafka:0.23.0-kafka-2.8.0
-       #     - name: STRIMZI_KAFKA_MIRROR_MAKER_2_IMAGES
-      #        value: |
-       #         2.6.0=quay.io/strimzi/kafka:0.23.0-kafka-2.6.0
-       #         2.6.1=quay.io/strimzi/kafka:0.23.0-kafka-2.6.1
-       #         2.6.2=quay.io/strimzi/kafka:0.23.0-kafka-2.6.2
-       #         2.7.0=quay.io/strimzi/kafka:0.23.0-kafka-2.7.0
-       #         2.8.0=quay.io/strimzi/kafka:0.23.0-kafka-2.8.0
+                2.7.0=quay.io/strimzi/kafka:0.23.0-kafka-2.7.0
+                2.7.1=quay.io/strimzi/kafka:0.23.0-kafka-2.7.1
+                2.8.0=quay.io/strimzi/kafka:0.23.0-kafka-2.8.0
+            - name: STRIMZI_KAFKA_CONNECT_S2I_IMAGES
+              value: |
+                2.7.0=quay.io/strimzi/kafka:0.23.0-kafka-2.7.0
+                2.7.1=quay.io/strimzi/kafka:0.23.0-kafka-2.7.1
+                2.8.0=quay.io/strimzi/kafka:0.23.0-kafka-2.8.0
+            - name: STRIMZI_KAFKA_MIRROR_MAKER_IMAGES
+              value: |
+                2.7.0=quay.io/strimzi/kafka:0.23.0-kafka-2.7.0
+                2.7.1=quay.io/strimzi/kafka:0.23.0-kafka-2.7.1
+                2.8.0=quay.io/strimzi/kafka:0.23.0-kafka-2.8.0
+            - name: STRIMZI_KAFKA_MIRROR_MAKER_2_IMAGES
+              value: |
+                2.7.0=quay.io/strimzi/kafka:0.23.0-kafka-2.7.0
+                2.7.1=quay.io/strimzi/kafka:0.23.0-kafka-2.7.1
+                2.8.0=quay.io/strimzi/kafka:0.23.0-kafka-2.8.0
             - name: STRIMZI_DEFAULT_TOPIC_OPERATOR_IMAGE
               value: acrRegistry/redhat8/strimzi-operator:0.23.0
             - name: STRIMZI_DEFAULT_USER_OPERATOR_IMAGE
