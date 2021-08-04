@@ -55,7 +55,10 @@ spec:
             - name: STRIMZI_DEFAULT_TLS_SIDECAR_CRUISE_CONTROL_IMAGE
               value: acrRegistry/redhat8/strimzi-kafka:0.23.0-kafka-2.8.0
             - name: STRIMZI_KAFKA_IMAGES
-              value: 2.8.0=acrRegistry/redhat8/strimzi-kafka:0.23.0-kafka-2.8.0
+              value: |
+                2.7.0=quay.io/strimzi/kafka:0.24.0-kafka-2.7.0
+                2.7.1=quay.io/strimzi/kafka:0.24.0-kafka-2.7.1
+                2.8.0=quay.io/strimzi/kafka:0.24.0-kafka-2.8.0
         #    - name: STRIMZI_KAFKA_IMAGES
          #     value: |
        #         2.6.0=quay.io/strimzi/kafka:0.23.0-kafka-2.6.0
