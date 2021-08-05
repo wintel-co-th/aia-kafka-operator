@@ -3,7 +3,51 @@ kind: KafkaBridge
 metadata:
   name: my-bridge
 spec:
-  replicas: 3
-  bootstrapServers: my-cluster-kafka-bootstrap:9092
-  http:
+  replicas: 3 
+  bootstrapServers: my-cluster-kafka-bootstrap:9092 
+  http: 
     port: 8080
+    cors: 
+      allowedOrigins: "https://strimzi.io"
+      allowedMethods: "GET,POST,PUT,DELETE,OPTIONS,PATCH"
+  consumer: 
+    config:
+      auto.offset.reset: earliest
+  producer: 
+    config:
+      delivery.timeout.ms: 300000
+  resources: 
+    requests:
+      cpu: "1"
+      memory: 2Gi
+    limits:
+      cpu: "2"
+      memory: 2Gi
+  logging: 
+    type: inline
+    loggers:
+      logger.bridge.level: "INFO"
+      # enabling DEBUG just for send operation
+      logger.send.name: "http.openapi.operation.send"
+      logger.send.level: "DEBUG"
+  jvmOptions: 
+    "-Xmx": "1g"
+    "-Xms": "1g"
+  readinessProbe: 
+    initialDelaySeconds: 15
+    timeoutSeconds: 5
+  livenessProbe:
+    initialDelaySeconds: 15
+    timeoutSeconds: 5
+  template: 
+    pod:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: dedicated
+                      operator: In
+                      values:
+                        - kafka
+                topologyKey: "kubernetes.io/hostname"
