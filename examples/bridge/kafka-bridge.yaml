@@ -2,6 +2,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaBridge
 metadata:
   name: my-bridge
+  namespace: kafka-dev
 spec:
   replicas: 3
   bootstrapServers: my-cluster-kafka-bootstrap:9092
