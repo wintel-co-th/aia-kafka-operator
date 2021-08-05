@@ -47,7 +47,7 @@ spec:
             - labelSelector:
                 matchExpressions:
                   - key: dedicated
-                      operator: In
-                      values:
-                        - kafka
-                topologyKey: "kubernetes.io/hostname"
+                    operator: In
+                    values:
+                      - kafka
+              topologyKey: "kubernetes.io/hostname"
