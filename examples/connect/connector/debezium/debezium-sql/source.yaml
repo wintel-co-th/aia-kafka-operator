@@ -1,1 +1,27 @@
-chahdasdasdadasd
+apiVersion: "kafka.strimzi.io/v1alpha1"
+kind: "KafkaConnector"
+metadata:
+  name: "coast-connector-dev"
+  labels:
+    strimzi.io/cluster: thdlcd01-dev-connect-cluster
+spec:
+  class: io.debezium.connector.sqlserver.SqlServerConnector
+  tasksMax: 1
+  config:
+    database.hostname: thazedmdb0007.9f036a8099ea.database.windows.net
+    database.port: "1433"
+    database.user: "dpcdckkn01"
+    database.password: "a8g7pkWm#w"
+    database.server.id: "15"
+    database.server.name: "thazedmdb0007"
+    database.dbname: "COASTBECP"
+    database.whitelist: "COASTBECP"
+    decimal.handling.mode: "string"
+    database.history.kafka.bootstrap.servers: thdlcd01-dev-kafka2-cluster-kafka-bootstrap:9092
+    database.history.kafka.topic: "kafka-tss-dev.coast"
+    table.include.list: "dbo.tblsic,dbo.tbluwlettertype,dbo.tbluwmembermedicalrequirement,dbo.tbluwmembermedicalattachment,dbo.tbluwaallimit,dbo.tbluwaidslimit,dbo.tblreinsurancetreaty,dbo.tblsecureuser,dbo.tblsubstandardliferate,dbo.tbluwletterattachment,dbo.tbluwcycleinfo,dbo.tbleworksheet,dbo.tblteam,dbo.tbluwmemberinformation,dbo.tbluwmembermedicalletter,dbo.tblvaluationparmibnr,dbo.tblreinsurer,dbo.tblshortfall,dbo.tblreinsurancescheme,dbo.tblvaluationparm,dbo.tbltimestamprefresh,dbo.tblpolicyproductsuboffice,dbo.tblreceivableallocation,dbo.tblproductagehist,dbo.tblproductplancoveragehist,dbo.tblproductbenefitamthist,dbo.tblproductbenefithist,dbo.tblproductbenefitsumhist,dbo.tblproducthist,dbo.tblproductplanhist,dbo.tblreceivablecollection,dbo.tblpolicyproductproducerhist,dbo.tblreceivableallocationtransaction,dbo.tblregion,dbo.tblpolicyyear,dbo.tblpremiumrate,dbo.tblpremiumratedetail,dbo.tblpolicysubofficeproducerhist,dbo.tblreceivableindividual,dbo.tblrlob,dbo.tblproducer,dbo.tbltimestamprefresh,dbo.tblpolicyproductcoveragebill,dbo.tblphone,dbo.tblpolicycorrespondence,dbo.tblpolicyproductagehist,dbo.tblpolicypkgresolutionhist,dbo.tblpolicyproductbenefithist,dbo.tblpolicyproductplanhist,dbo.tblpolicyproductpremiumratehist,dbo.tblpolicycorrespondencedelivery,dbo.tblpolicyproducthist,dbo.tblpolicyhist,dbo.tblpolicyproductattachment,dbo.tblpolicybill,dbo.tblpolicyproductbenefitsumhist,dbo.tblpkgresolutionhist,dbo.tblpolicypkgschemehist,dbo.tblpayscheduledetail,dbo.tblpolicyproductbill,dbo.tblpolicyproductbenefitamthist,dbo.tbltimestamprefresh,dbo.tblpolicyfinance,dbo.tblparty,dbo.tblpayschedule,dbo.tblpartyaccount,dbo.tblmemberbeneficiary,dbo.tblmessage,dbo.tblinsuredindividualbillinfo,dbo.tblmemberbill,dbo.tbllookuptype,dbo.tblmedicalrequirement,dbo.tblinsureduwcoverage,dbo.tblmembership,dbo.tbllookup,dbo.tbllookupcontrol,dbo.tblmemberhist,dbo.tblmiscellaneousreceivable,dbo.tblorganization,dbo.tblpaidfeedetail,dbo.tbllob,dbo.tbllanguage,dbo.tblspecialdate,dbo.tbltimestamprefresh,dbo.tblfeecode,dbo.tblcollectoffice,dbo.tblindividualbill,dbo.tblcompany,dbo.tblinsuredcoveragehist,dbo.tblinsuredhist,dbo.tblindividualallocationtransaction,dbo.tblemail,dbo.tblindividual,dbo.tblexchangerate,dbo.tblcoveragecode,dbo.tblbillwriteoff,dbo.tblfeescale,dbo.tblcountry,dbo.tblindividualpaidfeedetail,dbo.tbldependenthist,dbo.tblexclusion,dbo.tblindividualbillfeedetail,dbo.tblcurrency,dbo.tbltimestamprefresh,dbo.tblcalendar,dbo.tblaccounttransaction,dbo.tblaccounttransactiontype,dbo.tblbenefit,dbo.tblbillfeedetail,dbo.tblaccountchart,dbo.tbladdress,dbo.tblagency,dbo.tbluwblacklist,dbo.tblbillplan,dbo.tblshortfallreceivable,dbo.tblbank,dbo.tblaccountentryhist,dbo.tblpolicyspecialcondition,dbo.tblaccountcode,dbo.tbldashboard,dbo.tbltimestamprefresh"
+    snapshot.mode: "schema_only"
+    include.schema.changes: "true"
+    topic.creation.default.partitions: 3
+    topic.creation.default.replication.factor: 3
+
