@@ -2,7 +2,6 @@ apiVersion: "kafka.strimzi.io/v1alpha1"
 kind: "KafkaConnector"
 metadata:
   name: "coast-connector-dev"
-  namespaces: namespace
   labels:
     strimzi.io/cluster: my-cluster
 spec:
