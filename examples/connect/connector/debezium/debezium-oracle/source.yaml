@@ -3,7 +3,7 @@ kind: "KafkaConnector"
 metadata:
   name: "cmic-connector-dev"
   labels:
-    strimzi.io/cluster: thdlcd01-dev-connect-cluster
+    strimzi.io/cluster: my-cluster
 spec:
   class: io.debezium.connector.oracle.OracleConnector
   tasksMax: 1
@@ -16,7 +16,7 @@ spec:
     database.dbname: "BDCMI01"
     database.oracle.version: "12+"
     #database.whitelist: "Connections"
-    database.history.kafka.bootstrap.servers: thdlcd01-dev-kafka2-cluster-kafka-bootstrap:9092
+    database.history.kafka.bootstrap.servers: kafka-aia-bootstrap:9092
     database.history.kafka.topic: "kafka-tss-dev.cmic"
     snapshot.mode: "schema_only"
     table.include.list: "saappcmic.benchmarkfeesch,saappcmic.payee,saappcmic.claimbenefititem,saappcmic.account,saappcmic.planbenefitlimit,saappcmic.benefititem,saappcmic.providercontact,saappcmic.insured,saappcmic.claimpolicycoverage,saappcmic.claimpolicy,saappcmic.physician,saappcmic.claimassessorworksheet,saappcmic.transerrorlog,saappcmic.correspondencecode,saappcmic.claimcomment,saappcmic.claimpolicyplan,saappcmic.cycledate,saappcmic.claimruleslog,saappcmic.claimsupplement,saappcmic.exchangerate,saappcmic.icd9code,saappcmic.claimpaymentaccumulator,saappcmic.claimpaymentdetail,saappcmic.provider,saappcmic.icd10code,saappcmic.networkdetail,saappcmic.network,saappcmic.exclusion,saappcmic.plan,saappcmic.providerdetail,saappcmic.serviceitem,saappcmic.agencypayment,saappcmic.claimpaymentworking,saappcmic.pendingcode,saappcmic.correspondence,saappcmic.standardbilling,saappcmic.accountpostsetup,saappcmic.rule,saappcmic.product,saappcmic.icd10specialty,saappcmic.providercontract,saappcmic.claimrequirementinfo,saappcmic.planbenefit,saappcmic.providercontractdetail,saappcmic.rulesupplement,saappcmic.icd9specialty,saappcmic.claimboosterdetail,saappcmic.claimbooster,saappcmic.claimbenefititempre,saappcmic.claimdeductdetail,saappcmic.claimdeduct,saappcmic.mclworking,saappcmic.claim,saappcmic.claimpayment,saappcmic.claimpaymentaccumulatorpre,saappcmic.claimpaymentdetailpre,saappcmic.claimpaymentworkingpre"
