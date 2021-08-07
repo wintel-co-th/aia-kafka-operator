@@ -11,7 +11,7 @@ spec:
     database.hostname: "thaidlora11.aia.biz"
     database.port: "1521"
     database.user: "dpcdckkn01"
-    database.password: "QAZxsw$321"
+    database.password: "password"
     database.server.name: "BDCAS01"
     database.dbname: "BDCAS01"
     database.history.kafka.bootstrap.servers: thdlcd01-dev-kafka2-cluster-kafka-bootstrap:9092
