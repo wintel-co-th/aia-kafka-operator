@@ -11,7 +11,7 @@ spec:
     database.hostname: thazedmdb0007.9f036a8099ea.database.windows.net
     database.port: "1433"
     database.user: "dpcdckkn01"
-    database.password: "a8g7pkWm#w"
+    database.password: "password"
     database.server.id: "15"
     database.server.name: "thazedmdb0007"
     database.dbname: "COASTBECP"
