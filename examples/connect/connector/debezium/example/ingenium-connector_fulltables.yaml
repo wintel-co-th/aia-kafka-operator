@@ -11,7 +11,7 @@ spec:
     database.hostname: "thadculora10.aia.biz"
     database.port: "1521"
     database.user: "COMPASS_DB"
-    database.password: "H7n64bEwQ5t"
+    database.password: "password"
     database.server.name: "BUODS02"
     database.dbname: "BUODS02"
     database.history.kafka.bootstrap.servers: thdlcd01-dev-kafka-cluster-kafka-bootstrap:9092
