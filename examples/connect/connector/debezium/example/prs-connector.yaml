@@ -1,0 +1,25 @@
+apiVersion: "kafka.strimzi.io/v1alpha1"
+kind: "KafkaConnector"
+metadata:
+  name: "prs-connector"
+  labels:
+    strimzi.io/cluster: thdlcd01-dev-connect-cluster
+spec:
+  class: io.debezium.connector.sqlserver.SqlServerConnector
+  tasksMax: 1
+  config:
+    database.hostname: 
+    database.port: ""
+    database.user: ""
+    database.password: ""
+    database.server.id: ""
+    database.server.name: ""
+    database.dbname: ""
+    database.whitelist: ""
+    database.history.kafka.bootstrap.servers: thdlcd01-dev-kafka2-cluster-kafka-bootstrap:9092
+    database.history.kafka.topic: "multi-schema.prs"
+    table.include.list: "tbl_batch,tbl_batch_bank_acct_hist,tbl_batch_hist,tbl_desk,tbl_payment_detail,tbl_payment_policy_attach,tbl_payment_policy_trxn,tbl_payment_total"
+    snapshot.mode: "schema_only"
+    include.schema.changes: "true"
+    topic.creation.default.partitions: 3
+    topic.creation.default.replication.factor: 3

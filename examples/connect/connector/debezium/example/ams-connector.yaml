@@ -1,0 +1,31 @@
+apiVersion: "kafka.strimzi.io/v1alpha1"
+kind: "KafkaConnector"
+metadata:
+  name: "cmic-connector-dev"
+  labels:
+    strimzi.io/cluster: thdlcd01-dev-connect-cluster
+spec:
+  class: io.debezium.connector.oracle.OracleConnector
+  tasksMax: 1
+  config:
+    database.hostname: "thazedmdb0007.9f036a8099ea.database.windows.net"
+    database.port: "1521"
+    database.user: "dpcdckkn01"
+    database.password: $coastpwd
+    database.server.name: "COASTBECP"
+    database.dbname: "COASTBECP"
+    database.oracle.version: "12+"
+    #database.whitelist: "Connections"
+    database.history.kafka.bootstrap.servers: thdlcd01-dev-kafka2-cluster-kafka-bootstrap:9092
+    database.history.kafka.topic: "kafka-tss-dev.cmic"
+    database.snapshot.mode: "schema_only"
+    table.include.list: "cmic.benchmarkfeesch,cmic.payee,cmic.claimbenefititem,cmic.account,cmic.planbenefitlimit,cmic.benefititem,cmic.providercontact,cmic.insured,cmic.claimpolicycoverage,cmic.claimpolicy,cmic.physician,cmic.claimassessorworksheet,cmic.transerrorlog,cmic.correspondencecode,cmic.claimcomment,cmic.claimpolicyplan,cmic.cycledate,cmic.claimruleslog,cmic.claimsupplement,cmic.exchangerate,cmic.icd9code,cmic.claimpaymentaccumulator,cmic.claimpaymentdetail,cmic.provider,cmic.icd10code,cmic.networkdetail,cmic.network,cmic.exclusion,cmic.plan,cmic.providerdetail,cmic.serviceitem,cmic.agencypayment,cmic.claimpaymentworking,cmic.pendingcode,cmic.correspondence,cmic.standardbilling,cmic.accountpostsetup,cmic.rule,cmic.product,cmic.icd10specialty,cmic.providercontract,cmic.claimrequirementinfo,cmic.planbenefit,cmic.providercontractdetail,cmic.rulesupplement,cmic.icd9specialty,cmic.claimboosterdetail,cmic.claimbooster,cmic.claimbenefititempre,cmic.claimdeductdetail,cmic.claimdeduct,cmic.mclworking,cmic.claim,cmic.claimpayment,cmic.claimpaymentaccumulatorpre,cmic.claimpaymentdetailpre,cmic.claimpaymentworkingpre"
+    include.schema.changes: "true"
+    database.connection.adapter: "logminer"
+    #transforms: "Reroute"
+    #transforms.Reroute.type: io.debezium.transforms.ByLogicalTableRouter
+    #transforms.Reroute.topic.regex: (.*)T(.*)
+    #transforms.Reroute.topic.replacement: "coast_source_tables"
+    #transforms.Reroute.key.field.name: "shard_id"
+    #topic.creation.default.partitions: 3
+    #topic.creation.default.replication.factor: 3

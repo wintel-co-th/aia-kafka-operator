@@ -1,0 +1,26 @@
+apiVersion: "kafka.strimzi.io/v1alpha1"
+kind: "KafkaConnector"
+metadata:
+  name: "rpas-connector-dev-3"
+  labels:
+    strimzi.io/cluster: thdlcd01-dev-connect-cluster
+spec:
+  class: io.debezium.connector.sqlserver.SqlServerConnector
+  tasksMax: 1
+  config:
+    database.hostname: thazedmdb0003.9f036a8099ea.database.windows.net
+    database.port: "1433"
+    database.user: "dpcdckkn01"
+    database.password: "ByUma5pkl02vaR"
+    database.server.id: "15"
+    database.server.name: "thazedmdb0003"
+    database.dbname: "db_rpasdata"
+    database.whitelist: "db_rpasdata"
+    decimal.handling.mode: "string"
+    database.history.kafka.bootstrap.servers: thdlcd01-dev-kafka2-cluster-kafka-bootstrap:9092
+    database.history.kafka.topic: "kafka-tss-dev.rpas-3"
+    table.include.list: "dbo.tmffundmstr,dbo.tmfdbpcalmbr,dbo.tmffnmovement,dbo.tmfpayee,dbo.tmfphmstr,dbo.tmfplmstr,dbo.tmfplsuboff"
+    snapshot.mode: "schema_only"
+    include.schema.changes: "true"
+    topic.creation.default.partitions: 3
+    topic.creation.default.replication.factor: 3

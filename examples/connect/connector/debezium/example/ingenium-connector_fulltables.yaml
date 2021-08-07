@@ -1,0 +1,25 @@
+apiVersion: "kafka.strimzi.io/v1alpha1"
+kind: "KafkaConnector"
+metadata:
+  name: "ingenium-connector-dev"
+  labels:
+    strimzi.io/cluster: thdlcd01-dev-connect-cluster
+spec:
+  class: io.debezium.connector.oracle.OracleConnector
+  tasksMax: 1
+  config:
+    database.hostname: "thadculora10.aia.biz"
+    database.port: "1521"
+    database.user: "COMPASS_DB"
+    database.password: "H7n64bEwQ5t"
+    database.server.name: "BUODS02"
+    database.dbname: "BUODS02"
+    database.history.kafka.bootstrap.servers: thdlcd01-dev-kafka-cluster-kafka-bootstrap:9092
+    database.history.kafka.topic: "schema-changes.ingenium-10"
+    snapshot.mode: "schema_only"
+    table.include.list: "STAGING.igm_tzpss,STAGING.igm_tactx,STAGING.igm_trt,STAGING.igm_tzpfd,STAGING.igm_tfd,STAGING.igm_tacth,STAGING.igm_tzcvh,STAGING.igm_tcvg,STAGING.igm_trl,STAGING.igm_tziva,STAGING.igm_tpol,STAGING.igm_tfa,STAGING.igm_tzcvw,STAGING.igm_tcvga,STAGING.igm_tphst,STAGING.igm_tfdut,STAGING.igm_tfv,STAGING.igm_tzchl,STAGING.igm_tuhco,STAGING.igm_tcmtx,STAGING.igm_tzpiv,STAGING.igm_tclia,STAGING.igm_tpsch,STAGING.igm_tuh,STAGING.igm_tzrcp,STAGING.igm_tcvgc,STAGING.igm_tzsus,STAGING.igm_tfc,STAGING.igm_tzclr,STAGING.igm_tfs,STAGING.igm_tcvgd,STAGING.igm_tclnm,STAGING.igm_tmvtx,STAGING.igm_tpolw,STAGING.igm_treqt,STAGING.igm_tpolt,STAGING.igm_tbndv,STAGING.igm_tcdsi,STAGING.igm_tcli,STAGING.igm_tcdsd,STAGING.igm_tfaag,STAGING.igm_tcdsa,STAGING.igm_tzpil,STAGING.igm_tpolc,STAGING.igm_tztcv,STAGING.igm_tzcpc,STAGING.igm_tzcpp,STAGING.igm_tpack,STAGING.igm_tpbtm,STAGING.igm_tcain,STAGING.igm_tclnc,STAGING.igm_tchtx,STAGING.igm_tzvtd,STAGING.igm_tbnka,STAGING.igm_tzflk,STAGING.igm_tbene,STAGING.igm_tzrmh,STAGING.igm_tzppa,STAGING.igm_tlhst,STAGING.igm_tpoll,STAGING.igm_tzlas,STAGING.igm_tzmpv,STAGING.igm_tfh,STAGING.igm_tzppd,STAGING.igm_tclib,STAGING.igm_tztpv,STAGING.igm_tzfum,STAGING.igm_tzvtl,STAGING.igm_tzaph,STAGING.igm_tzurs,STAGING.igm_tzcip,STAGING.igm_tfutp,STAGING.igm_tplrt,STAGING.igm_tzvtp,STAGING.igm_tttab,STAGING.igm_tlgas,STAGING.igm_tzpld,STAGING.igm_tmast,STAGING.igm_tzpic,STAGING.igm_tzcpa,STAGING.igm_tzvtr,STAGING.igm_tedit,STAGING.igm_tdmad,STAGING.igm_tpnfo,STAGING.igm_tamex,STAGING.igm_tzfds,STAGING.igm_tztpl,STAGING.igm_trh,STAGING.igm_tzfir,STAGING.igm_tznch,STAGING.igm_tzcmt,STAGING.igm_tztpd,STAGING.igm_tzpso,STAGING.igm_tgr,STAGING.igm_tfr,STAGING.igm_tplgr,STAGING.igm_tzpcn,STAGING.igm_tpolp,STAGING.igm_tzvtc,STAGING.igm_txtab,STAGING.igm_tzprb,STAGING.igm_tpdrw,STAGING.igm_tph,STAGING.igm_tzlna,STAGING.igm_tzpca,STAGING.igm_tpd,STAGING.igm_tzvtm,STAGING.igm_tzpoc,STAGING.igm_teftx,STAGING.igm_tzpin,STAGING.igm_tzati,STAGING.igm_tzfdp,STAGING.igm_tzsps,STAGING.igm_tzprs,STAGING.igm_tzolp,STAGING.igm_trtab,STAGING.igm_tzpph,STAGING.igm_tzpck,STAGING.igm_tzpkg,STAGING.igm_tzcax,STAGING.igm_tpbmf,STAGING.igm_tpdiv,STAGING.igm_tzddh,STAGING.igm_tzmfe,STAGING.igm_tir,STAGING.igm_tzpay,STAGING.igm_tzwcm,STAGING.igm_tzcmp,STAGING.igm_tdwcd,STAGING.igm_tfx,STAGING.igm_tpoln,STAGING.igm_tzpel,STAGING.igm_tzcmb,STAGING.igm_tzcom,STAGING.igm_tzocr,STAGING.igm_tbnkb,STAGING.igm_tpdrd,STAGING.igm_tzpau,STAGING.igm_tzopr,STAGING.igm_tzexc,STAGING.igm_tcrcy,STAGING.igm_tbrch,STAGING.igm_tfshd,STAGING.igm_tfshh,STAGING.igm_tzwvi,STAGING.igm_tclii,STAGING.igm_tzolr,STAGING.igm_tzrbl,STAGING.igm_tzpch"
+    include.schema.changes: "true"
+    database.connection.adapter: "logminer"
+    topic.creation.default.partitions: 3
+    topic.creation.default.replication.factor: 3
+

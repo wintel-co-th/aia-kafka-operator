@@ -1,0 +1,32 @@
+apiVersion: "kafka.strimzi.io/v1alpha1"
+kind: "KafkaConnector"
+metadata:
+  name: "orc-cmic-connector-1"
+  labels:
+    strimzi.io/cluster: thdlcd01-dev-connect-cluster
+spec:
+  class: io.debezium.connector.oracle.OracleConnector
+  tasksMax: 1
+  config:
+    database.hostname: "thazedmdb0007.9f036a8099ea.database.windows.net"
+    database.port: "1521"
+    database.user: "dpcdckkn01"
+    database.password: $coastpwd
+    database.server.name: "COASTBECP"
+    database.dbname: "COASTBECP"
+    database.oracle.version: "12+"
+    #database.whitelist: "Connections"
+    database.history.kafka.bootstrap.servers: thdlcd01-dev-kafka-cluster-kafka-bootstrap:9092
+    database.history.kafka.topic: "schema-changes.cmic-1"
+    database.snapshot.mode: "schema_only"
+    table.include.list: "CMiC.BENCHMARKFEESCH,CMiC.PAYEE,CMiC.CLAIMBENEFITITEM,CMiC.ACCOUNT,CMiC.PLANBENEFITLIMIT,CMiC.BENEFITITEM,CMiC.PROVIDERCONTACT,CMiC.INSURED,CMiC.CLAIMPOLICYCOVERAGE,CMiC.CLAIMPOLICY,CMiC.PHYSICIAN,CMiC.CLAIMASSESSORWORKSHEET,CMiC.TRANSERRORLOG,CMiC.CORRESPONDENCECODE,CMiC.CLAIMCOMMENT,CMiC.CLAIMPOLICYPLAN,CMiC.CYCLEDATE,CMiC.CLAIMRULESLOG,CMiC.CLAIMSUPPLEMENT,CMiC.EXCHANGERATE,CMiC.ICD9CODE,CMiC.CLAIMPAYMENTACCUMULATOR,CMiC.CLAIMPAYMENTDETAIL,CMiC.PROVIDER,CMiC.ICD10CODE,CMiC.NETWORKDETAIL,CMiC.NETWORK,CMiC.EXCLUSION,CMiC.PLAN,CMiC.PROVIDERDETAIL,CMiC.SERVICEITEM,CMiC.AGENCYPAYMENT,CMiC.CLAIMPAYMENTWORKING,CMiC.PENDINGCODE,CMiC.CORRESPONDENCE,CMiC.STANDARDBILLING,CMiC.ACCOUNTPOSTSETUP,CMiC.RULE,CMiC.PRODUCT,CMiC.ICD10SPECIALTY,CMiC.PROVIDERCONTRACT,CMiC.CLAIMREQUIREMENTINFO,CMiC.PLANBENEFIT,CMiC.PROVIDERCONTRACTDETAIL,CMiC.RULESUPPLEMENT,CMiC.ICD9SPECIALTY,CMiC.CLAIMBOOSTERDETAIL,CMiC.CLAIMBOOSTER,CMiC.CLAIMBENEFITITEMPRE,CMiC.CLAIMDEDUCTDETAIL,CMiC.CLAIMDEDUCT,CMiC.MCLWORKING,CMiC.CLAIM,CMiC.CLAIMPAYMENT,CMiC.CLAIMPAYMENTACCUMULATORPRE,CMiC.CLAIMPAYMENTDETAILPRE,CMiC.CLAIMPAYMENTWORKINGPRE"
+
+    include.schema.changes: "true"
+    database.connection.adapter: "logminer"
+    #transforms: "Reroute"
+    #transforms.Reroute.type: io.debezium.transforms.ByLogicalTableRouter
+    #transforms.Reroute.topic.regex: (.*)T(.*)
+    #transforms.Reroute.topic.replacement: "coast_source_tables"
+    #transforms.Reroute.key.field.name: "shard_id"
+    #topic.creation.default.partitions: 3
+    #topic.creation.default.replication.factor: 3

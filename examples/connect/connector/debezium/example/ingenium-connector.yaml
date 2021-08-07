@@ -1,0 +1,27 @@
+apiVersion: "kafka.strimzi.io/v1alpha1"
+kind: "KafkaConnector"
+metadata:
+  name: "ingenium-connector-dev"
+  labels:
+    strimzi.io/cluster: thdlcd01-dev-connect-cluster
+spec:
+  class: io.debezium.connector.oracle.OracleConnector
+  tasksMax: 1
+  config:
+    database.hostname: "thadculora10.aia.biz"
+    database.port: "1521"
+    database.user: "COMPASS_DB"
+    database.password: "H7n64bEwQ5t"
+    database.server.name: "BUODS02"
+    database.dbname: "BUODS02"
+    database.history.kafka.bootstrap.servers: thdlcd01-dev-kafka2-cluster-kafka-bootstrap:9092
+    database.history.kafka.topic: "kafka-tss-dev.ingenium"
+    snapshot.mode: "schema_only"
+    table.include.list: "STAGING.igm_tztpv,STAGING.igm_tzfum,STAGING.igm_tzvtl,STAGING.igm_tzaph,STAGING.igm_tzurs,STAGING.igm_tzcip,STAGING.igm_tfutp,STAGING.igm_tplrt,STAGING.igm_tzvtp,STAGING.igm_tttab,STAGING.igm_tlgas,STAGING.igm_tzpld,STAGING.igm_tmast "
+    include.schema.changes: "true"
+    database.connection.adapter: "logminer"
+    topic.creation.default.partitions: 3
+    topic.creation.default.replication.factor: 3
+    decimal.handling.mode: "string"
+
+    
