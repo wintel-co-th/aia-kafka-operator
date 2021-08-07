@@ -11,7 +11,7 @@ spec:
     database.hostname: "THADCDLORA07.aia.biz"
     database.port: "1521"
     database.user: "dpcdckkn01"
-    database.password: "jks$cXE2tYb3g"
+    database.password: "password"
     database.server.name: "BDCMI01"
     database.dbname: "BDCMI01"
     database.oracle.version: "12+"
