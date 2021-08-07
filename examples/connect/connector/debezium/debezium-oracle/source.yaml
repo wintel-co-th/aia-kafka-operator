@@ -1,25 +1,23 @@
 apiVersion: "kafka.strimzi.io/v1alpha1"
 kind: "KafkaConnector"
 metadata:
-  name: "cmic-connector-dev"
+  name: "cmac-connector-dev"
   labels:
     strimzi.io/cluster: my-cluster
 spec:
   class: io.debezium.connector.oracle.OracleConnector
   tasksMax: 1
   config:
-    database.hostname: "THADCDLORA07.aia.biz"
+    database.hostname: "thaidlora11.aia.biz"
     database.port: "1521"
     database.user: "dpcdckkn01"
     database.password: password-dpcdckkn01
-    database.server.name: "BDCMI01"
-    database.dbname: "BDCMI01"
-    database.oracle.version: "12+"
-    #database.whitelist: "Connections"
+    database.server.name: "BDCAS01"
+    database.dbname: "BDCAS01"
     database.history.kafka.bootstrap.servers: kafka-aia-bootstrap:9092
-    database.history.kafka.topic: "kafka-tss-dev.cmic"
+    database.history.kafka.topic: "kafka-tss-dev.cmac-1"
     snapshot.mode: "schema_only"
-    table.include.list: "saappcmic.benchmarkfeesch,saappcmic.payee,saappcmic.claimbenefititem,saappcmic.account,saappcmic.planbenefitlimit,saappcmic.benefititem,saappcmic.providercontact,saappcmic.insured,saappcmic.claimpolicycoverage,saappcmic.claimpolicy,saappcmic.physician,saappcmic.claimassessorworksheet,saappcmic.transerrorlog,saappcmic.correspondencecode,saappcmic.claimcomment,saappcmic.claimpolicyplan,saappcmic.cycledate,saappcmic.claimruleslog,saappcmic.claimsupplement,saappcmic.exchangerate,saappcmic.icd9code,saappcmic.claimpaymentaccumulator,saappcmic.claimpaymentdetail,saappcmic.provider,saappcmic.icd10code,saappcmic.networkdetail,saappcmic.network,saappcmic.exclusion,saappcmic.plan,saappcmic.providerdetail,saappcmic.serviceitem,saappcmic.agencypayment,saappcmic.claimpaymentworking,saappcmic.pendingcode,saappcmic.correspondence,saappcmic.standardbilling,saappcmic.accountpostsetup,saappcmic.rule,saappcmic.product,saappcmic.icd10specialty,saappcmic.providercontract,saappcmic.claimrequirementinfo,saappcmic.planbenefit,saappcmic.providercontractdetail,saappcmic.rulesupplement,saappcmic.icd9specialty,saappcmic.claimboosterdetail,saappcmic.claimbooster,saappcmic.claimbenefititempre,saappcmic.claimdeductdetail,saappcmic.claimdeduct,saappcmic.mclworking,saappcmic.claim,saappcmic.claimpayment,saappcmic.claimpaymentaccumulatorpre,saappcmic.claimpaymentdetailpre,saappcmic.claimpaymentworkingpre"
+    table.include.list: "casdbsit.account,casdbsit.accounting,casdbsit.coverage_code,casdbsit.payee,casdbsit.extra_payment,casdbsit.extra_payment_info,casdbsit.extra_payment_map,casdbsit.payee_payment,casdbsit.beneficiary,casdbsit.benefit,casdbsit.benefit_benefit_rule_mapping,casdbsit.benefit_code,casdbsit.client,casdbsit.source_type_code,casdbsit.impairment,casdbsit.loss,casdbsit.expense,casdbsit.claim,casdbsit.selected_claim_type,casdbsit.policy_coverage,casdbsit.accident,casdbsit.policy_client_map,casdbsit.policy_coverage_client_map,casdbsit.coverage_claim_type_lookup,casdbsit.policy,casdbsit.disease_lookup,casdbsit.reserve_code,casdbsit.eligibility_check_msg,casdbsit.pending_code,casdbsit.pending_requirement,casdbsit.severity_message,casdbsit.reserve_reserve_rule_mapping,casdbsit.pending_follow_up,casdbsit.reserve,casdbsit.coverage_reserve_map,casdbsit.fraud_agent_lookup,casdbsit.coverage_benefit_map,casdbsit.fraud_client_lookup,casdbsit.icd_lookup,casdbsit.interest_lookup,casdbsit.fatca_plan_lookup,casdbsit.claim_before_dth,casdbsit.claim_comment,casdbsit.decline_reason,casdbsit.payee_extra_payment,casdbsit.zip_state_code_map,casdbsit.claim_before_dth_beneficiary,casdbsit.claim_before_dth_policy,casdbsit.special_conditin_lookup,casdbsit.policy_special_condition_map"
     include.schema.changes: "true"
     database.connection.adapter: "logminer"
     topic.creation.default.partitions: 3
