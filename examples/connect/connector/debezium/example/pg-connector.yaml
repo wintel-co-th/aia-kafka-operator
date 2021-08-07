@@ -11,7 +11,7 @@ spec:
     database.hostname: "thazedpgdb0003.database.windows.net"
     database.port: "5432"
     database.user: "staging"
-    database.password: "Hp9Ly$#mtfWU4i"
+    database.password: "password"
     database.server.name: "db_staging"
     database.dbname: "db_staging"
     table.include.list: "test"
