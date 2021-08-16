@@ -30,7 +30,7 @@ spec:
     trustedCertificates:
       - secretName:  kafka-cert-aia
         certificate: ca.crt
-  image: acrRegistry/redhat8/strimzi-kafka-connect:0.23.0-kafka-2.8.0
+  image: acrRegistry/redhat8/strimzi-kafka-connect:0.23.0-kafka-2.8.1
   config:
     group.id: kafka-connect-cluster
     offset.storage.topic: kafka-connect-cluster-offsets
