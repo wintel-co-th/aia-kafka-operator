@@ -42,10 +42,10 @@ spec:
       type: jbod 
       volumes:
       - id: 0
-        size: 20Gi
+        size: 2048Gi
         type: persistent-claim
         class: managed-premium
-        deleteClaim: true
+        deleteClaim: false
     template:
       pod:
         tolerations:
@@ -84,9 +84,9 @@ spec:
                 topologyKey: "kubernetes.io/hostname"
     storage:
       type: persistent-claim
-      size: 20Gi
+      size: 2048Gi
       class: managed-premium
-      deleteClaim: true
+      deleteClaim: false
   entityOperator:
     topicOperator: {}
     userOperator: {}
